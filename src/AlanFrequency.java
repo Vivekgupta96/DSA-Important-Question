@@ -31,10 +31,6 @@ class AlanFrequency {
     }
 
 
-
-
-
-
     public static void main(String args[] ) throws Exception {
         //BufferedReader
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
