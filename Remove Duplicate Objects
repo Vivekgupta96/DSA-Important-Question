@@ -1,0 +1,60 @@
+
+public class Student{
+     int roll;
+     String name;
+     int marks;
+     
+        Student(int roll,String name,int mk){
+            this.roll=roll;
+            this.name=name;
+            this.marks=mk;
+        }
+        
+        public void setRoll(int  roll){
+            this.roll=roll;
+        }
+        
+         public void setName(String roll){
+            this.name=roll;
+        }
+        
+        public void setMarks(int  marks){
+            this.marks=marks;
+        }
+        
+        public int getRoll(){
+            return roll;
+        }
+        
+        public String getName(){
+            return name;
+        }
+        
+        public int getMarks(){
+            return marks;
+        }
+      //hascode method
+        public int hashCode(){
+            return Objects.hash(roll,name,marks);
+        }
+
+       //equals to method 
+        public boolean equals(Object obj){
+            
+            if(this==obj){
+                return true;
+            }
+            Student s=(Student)obj;
+            return roll==s.roll&&name.equals(s.name)&&marks==s.marks;
+        }
+        
+}
+
+    
+
+
+
+
+
+
+
