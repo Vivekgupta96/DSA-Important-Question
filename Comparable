@@ -1,0 +1,43 @@
+
+class Employee implements Comparable<Employee>{
+    
+ int id;
+ String name;
+ String city;
+ 
+   Employee(int id,String name,String city) {
+       this.id=id;
+       this.name=name;
+       this.city=city;
+   }
+   
+   public void setId(int id){
+        this.id=id;
+   }
+  public void setName(String name){
+      this.name=name;
+  }
+   
+    public void setCity(String name){
+      this.city=name;
+  }
+  
+  public int getId(){
+      return id;
+  }
+    
+ public String getName(){
+     return name;
+ }
+ 
+ public String getCity(){
+     return city;
+ }
+ 
+ @Override
+ public int compareTo(Employee  ep){
+     
+     return Integer.compare(this.id,ep.id);
+ }
+
+}
