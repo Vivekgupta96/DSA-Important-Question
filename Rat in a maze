@@ -1,0 +1,48 @@
+import java.util.*;
+
+class Main {
+   static List<String> path = new ArrayList<>();
+    
+    public static void main(String args[]) throws Exception {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[][] arr = new int[n][n];
+        for(int i = 0;i<n;i++){
+            for(int j = 0;j<n;j++){
+                arr[i][j]=sc.nextInt();
+            }
+        }
+        String s = "";
+        find(0,0,arr,s,n);
+        Collections.sort(path);
+        if(path.size() == 0){
+            System.out.println(-1);
+        }else{
+            for(String k : path){
+                System.out.print(k+" ");
+            }
+            System.out.println();
+        }
+    }
+    
+    public static void find(int i , int j, int[][] arr, String s, int n){
+        if(i<0 || i>n-1 || j<0 || j>n-1 || arr[i][j] == 0 ||  arr[i][j] == -1)    {
+            return;
+        }
+        
+        if(i==n-1 && j == n-1){
+            path.add(s);
+            return;
+        }
+        
+        int copy_value= arr[i][j];
+        arr[i][j]= -1;
+        find(i, j-1,arr, s+"L", n);
+        find(i, j+1,arr, s+"R", n);
+        find(i-1, j, arr,s+"U",n);
+        find(i+1, j ,arr, s+"D", n);
+        
+        arr[i][j]=copy_value;
+    }
+    
+}
