@@ -1,0 +1,21 @@
+public class JumpingOnClouds {
+    private static int jumpingOnClouds(int n, int[] arr) {
+        int jumpCount=0;
+        int currentCloud=0;
+        while(currentCloud<n-1){
+            if(currentCloud+2<n&& arr[currentCloud+2]!=1){
+                currentCloud+=2;
+            }else{
+                currentCloud++;
+            }
+            jumpCount++;
+        }
+        return jumpCount;
+    }
+    public static void main(String[] args) {
+        int n = 6;
+        int[] clouds = {0, 0, 0, 0, 1, 0};
+        int minJumps = jumpingOnClouds(n, clouds);
+        System.out.println(minJumps);
+    }
+}
