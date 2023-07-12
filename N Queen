@@ -1,0 +1,41 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.*;
+class Main {
+    private static int count;
+    private static void solveNQueens(int[][] board, int row,int[] cols,int[] ndig,int[] rdig) {
+        if (row == board.length) {
+            count++;
+        } 
+        for (int col = 0; col < board.length; col++) {
+            if(cols[col]==0 && ndig[row+col]==0 && rdig[row-col+board.length-1]==0){
+                 board[row][col]=1;
+                 cols[col]=1;
+                 ndig[row+col]=1;
+                 rdig[row-col+board.length-1]=1;
+                 solveNQueens( board,  row+1, cols, ndig,rdig);
+                 //back track
+                 board[row][col]=0;
+                 cols[col]=0;
+                 ndig[row+col]=0;
+                 rdig[row-col+board.length-1]=0;
+            }
+        }
+        
+    }
+    public static void main(String args[] ) throws Exception {
+        //BufferedReader
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int n =Integer.parseInt(br.readLine()); 
+        
+        int[][] board=new int[n][n];
+        int [] cols= new int[n];
+        
+        int [] ndig= new int[2*n-1];
+        int [] rdig= new int[2*n-1];
+        
+        solveNQueens(board,0,cols,ndig,rdig);
+         System.out.println(count);
+       
+    }
+}
